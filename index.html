@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas Algoritma pertemuan 4</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 10px 0;
+            border: none;
+            background: blue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Website Tugas Algoritma pertemuan 4</h1>
+<p><b>Nama:</b> Raysa Nadif Oktaviam</p>
+<p><b>NIM:</b> 251011701048</p>
+
+<!-- FIZZBUZZ -->
+<div class="card">
+    <h2>1. FizzBuzz</h2>
+
+    <p>
+    Program ini menggunakan perulangan dan percabangan untuk menampilkan angka 1-100 
+    dengan aturan tertentu.
+    </p>
+
+    <button onclick="runFizzBuzz()">Jalankan</button>
+    <pre id="fizzbuzz"></pre>
+
+    <h3>Code Python:</h3>
+    <pre>
+for i in range(1, 101):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)
+    </pre>
+
+    <h3>Code JavaScript:</h3>
+    <pre>
+for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        result += "FizzBuzz";
+    } else if (i % 3 === 0) {
+        result += "Fizz";
+    } else if (i % 5 === 0) {
+        result += "Buzz";
+    } else {
+        result += i;
+    }
+}
+    </pre>
+</div>
+
+<!-- KONVERSI HARI -->
+<div class="card">
+    <h2>2. Konversi Hari</h2>
+
+    <p>
+    Program ini mengubah jumlah hari menjadi tahun, bulan, dan hari menggunakan 
+    operasi pembagian dan sisa bagi.
+    </p>
+
+    <input type="number" id="inputHari" placeholder="Masukkan jumlah hari">
+    <br>
+    <button onclick="konversiHari()">Konversi</button>
+    <pre id="hasil"></pre>
+
+    <h3>Code Python:</h3>
+    <pre>
+total_hari = int(input("Masukkan jumlah hari: "))
+
+tahun = total_hari // 365
+sisa_hari = total_hari % 365
+
+bulan = sisa_hari // 30
+hari = sisa_hari % 30
+
+print("Tahun :", tahun)
+print("Bulan :", bulan)
+print("Hari  :", hari)
+    </pre>
+
+    <h3>Code JavaScript:</h3>
+    <pre>
+let tahun = Math.floor(total / 365);
+let sisa = total % 365;
+
+let bulan = Math.floor(sisa / 30);
+let hari = sisa % 30;
+    </pre>
+</div>
+
+<script>
+function runFizzBuzz() {
+    let hasil = "";
+    for (let i = 1; i <= 100; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            hasil += "FizzBuzz\n";
+        } else if (i % 3 === 0) {
+            hasil += "Fizz\n";
+        } else if (i % 5 === 0) {
+            hasil += "Buzz\n";
+        } else {
+            hasil += i + "\n";
+        }
+    }
+    document.getElementById("fizzbuzz").textContent = hasil;
+}
+
+function konversiHari() {
+    let total = parseInt(document.getElementById("inputHari").value);
+
+    let tahun = Math.floor(total / 365);
+    let sisa = total % 365;
+
+    let bulan = Math.floor(sisa / 30);
+    let hari = sisa % 30;
+
+    let hasil = "Tahun: " + tahun + "\n";
+    hasil += "Bulan: " + bulan + "\n";
+    hasil += "Hari: " + hari;
+
+    document.getElementById("hasil").textContent = hasil;
+}
+</script>
+
+</body>
+</html>
