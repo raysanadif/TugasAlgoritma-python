@@ -1,0 +1,44 @@
+# Data mahasiswa
+mahasiswa = {
+    "10121001": "Asep",
+    "10121002": "Budi",
+    "10121003": "Cecep"
+}
+
+# Data nilai
+nilai = {
+    "10121001": [50, 70, 40, 80],
+    "10121002": [78, 78, 80, 65],
+    "10121003": [57, 88, 67, 69]
+}
+
+# 1. Cari mahasiswa dengan rata-rata tertinggi
+rata_mahasiswa = {}
+
+for nim in nilai:
+    rata = sum(nilai[nim]) / len(nilai[nim])
+    rata_mahasiswa[nim] = rata
+
+# Cari tertinggi
+nim_terbaik = max(rata_mahasiswa, key=rata_mahasiswa.get)
+
+print("Mahasiswa Terpintar :", mahasiswa[nim_terbaik],
+      "(Nilai :", round(rata_mahasiswa[nim_terbaik], 2), ")")
+
+# 2. Cari mata kuliah dengan rata-rata terkecil
+# MK1, MK2, MK3, MK4
+jumlah_mk = len(next(iter(nilai.values())))
+rata_mk = []
+
+for i in range(jumlah_mk):
+    total = 0
+    for nim in nilai:
+        total += nilai[nim][i]
+    rata = total / len(nilai)
+    rata_mk.append(rata)
+
+# Cari nilai terkecil
+mk_terkecil = rata_mk.index(min(rata_mk))
+
+print("Mata Kuliah Nilai Terkecil : MK" + str(mk_terkecil + 1),
+      "(Nilai :", round(rata_mk[mk_terkecil], 2), ")")
